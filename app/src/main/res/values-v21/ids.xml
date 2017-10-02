@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="faceimage" />
+    <item type="id" name="eyeimage" />
+    <item type="id" name="eyesimage" />
+    <item type = "id" name ="lipimage"/>
+    <item type ="id" name="noseimage"/>
+    <item type="id" name="glasses" />
+    <item type="id" name="toop" />
+    <item type="id" name="save" />
+    <item type="id" name="dob" />
+    <item type = "id" name ="cou"/>
+    <item type = "id" name ="movie"/>
+    <item type = "id" name ="activity_main1"/>
+    <item type = "id" name ="activity_main"/>
+    <item type = "id" name ="movies_layout"/>
+
+
+
+</resources>
