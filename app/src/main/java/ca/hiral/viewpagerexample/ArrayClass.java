@@ -5,7 +5,7 @@ package ca.hiral.viewpagerexample;
  */
 
 public class ArrayClass {
-    public Integer[] facemThumbIds = {
+    public Integer[] facearray = {
             R.drawable.pic_s1_0, R.drawable.pic_s1_1,
             R.drawable.pic_s1_2, R.drawable.pic_s1_3,
             R.drawable.pic_s1_4, R.drawable.pic_s1_5,
@@ -24,7 +24,7 @@ public class ArrayClass {
             R.drawable.pic_s1_31,R.drawable.pic_s1_32,
             R.drawable.pic_s1_33
     };
-    public Integer[] eyebrowmThumbIds = {
+    public Integer[] eyebrowarray = {
             R.drawable.pic_s3_1, R.drawable.pic_s3_20000,
             R.drawable.pic_s3_2, R.drawable.pic_s3_3,
             R.drawable.pic_s3_4, R.drawable.pic_s3_5,
@@ -43,7 +43,7 @@ public class ArrayClass {
             R.drawable.pic_s3_31,R.drawable.pic_s3_20001,
             R.drawable.pic_s3_20002
     };
-    public Integer[] eyemThumbIds = {
+    public Integer[] eyearray = {
             R.drawable.pic_s4_1, R.drawable.pic_s4_53,
             R.drawable.pic_s4_2, R.drawable.pic_s4_3,
             R.drawable.pic_s4_4, R.drawable.pic_s4_5,
@@ -64,7 +64,7 @@ public class ArrayClass {
     };
 
 
-    public Integer[] LipmThumbIds = {
+    public Integer[] Liparray = {
             R.drawable.pic_s5_1, R.drawable.pic_s5_44,
             R.drawable.pic_s5_2, R.drawable.pic_s5_3,
             R.drawable.pic_s5_4, R.drawable.pic_s5_5,
@@ -83,7 +83,7 @@ public class ArrayClass {
             R.drawable.pic_s5_31,R.drawable.pic_s5_32,
             R.drawable.pic_s5_33
     };
-    public Integer[] nosemThumbIds = {
+    public Integer[] nosearray = {
             R.drawable.pic_s14_20004, R.drawable.pic_s14_20005,
             R.drawable.pic_s14_20006, R.drawable.pic_s14_20007,
             R.drawable.pic_s14_20008, R.drawable.pic_s14_20009,
@@ -102,7 +102,7 @@ public class ArrayClass {
             R.drawable.pic_s14_20032,R.drawable.pic_s14_20033,
             R.drawable.pic_s14_20034
     };
-    public Integer[] glassmThumbIds = {
+    public Integer[] glassarray = {
 
             R.drawable.pic_s7_1, R.drawable.pic_s7_20000,
             R.drawable.pic_s7_2, R.drawable.pic_s7_3,
@@ -121,7 +121,7 @@ public class ArrayClass {
             R.drawable.pic_s7_20009,R.drawable.pic_s7_20010,
             R.drawable.pic_s7_20011,R.drawable.pic_s7_20012
     };
-    public Integer[] topmThumbIds = {
+    public Integer[] toparray = {
             R.drawable.pic_s8_1, R.drawable.pic_s8_20007,
             R.drawable.pic_s8_2, R.drawable.pic_s8_20014,
             R.drawable.pic_s8_4, R.drawable.pic_s8_5,

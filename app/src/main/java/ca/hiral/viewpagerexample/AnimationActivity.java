@@ -1,25 +1,16 @@
 package ca.hiral.viewpagerexample;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.util.ArrayList;
 
 import ca.hiral.viewpagerexample.Adapter.AniamtionAdapter;
 
@@ -27,22 +18,24 @@ import ca.hiral.viewpagerexample.Adapter.AniamtionAdapter;
  * Created by Admin on 21-06-2017.
  */
 
-public class AnimationActivity  extends Activity {
+public class AnimationActivity extends Activity {
 
+    ListView grid;
+    AniamtionAdapter adapter;
+    File file;
+    String hello;
+    AnimationDrawable Anim;
+    ImageView animationimage;
     // Declare variables
     private String[] FilePathStrings;
     private String[] FileNameStrings;
     private File[] listFile;
-    ListView grid;
-    AniamtionAdapter adapter;
-    File file;
-    AnimationDrawable Anim;
-    ImageView animationimage;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.animationactivity);
-        animationimage = (ImageView)findViewById(R.id.animationimage);
+        animationimage = (ImageView) findViewById(R.id.animationimage);
         // Check for SD Card
         if (!Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {
@@ -82,9 +75,9 @@ public class AnimationActivity  extends Activity {
 
 
         Anim = new AnimationDrawable();
-        for(int i=0; i<grid.getAdapter().getCount(); i++){
+        for (int i = 0; i < grid.getAdapter().getCount(); i++) {
 
-            Anim.addFrame(Drawable.createFromPath(listFile[i].getAbsolutePath()),200);
+            Anim.addFrame(Drawable.createFromPath(listFile[i].getAbsolutePath()), 200);
         }
         Anim.setOneShot(false);
         animationimage.setBackgroundDrawable(Anim);
