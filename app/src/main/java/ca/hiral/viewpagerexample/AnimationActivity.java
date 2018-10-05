@@ -2,10 +2,8 @@ package ca.hiral.viewpagerexample;
 
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -73,7 +71,7 @@ public class AnimationActivity extends Activity {
         // Set the LazyAdapter to the GridView
         grid.setAdapter(adapter);
 
-
+/*
         Anim = new AnimationDrawable();
         for (int i = 0; i < grid.getAdapter().getCount(); i++) {
 
@@ -89,7 +87,7 @@ public class AnimationActivity extends Activity {
                 Anim.start();
 
             }
-        }, 5000);
+        }, 5000);*/
 
 
     }

@@ -12,22 +12,22 @@ import android.widget.ImageView;
  */
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
-    public  Integer[] mThumbIds ;
+    public  Integer[] characterArray;
 
 
     public ImageAdapter(Context c, Integer[] mThumbIds){
         mContext = c;
-        this.mThumbIds = mThumbIds;
+        this.characterArray = mThumbIds;
     }
 
     @Override
     public int getCount() {
-        return mThumbIds.length;
+        return characterArray.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return mThumbIds[position];
+        return characterArray[position];
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ImageAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView = new ImageView(mContext);
 
-        imageView.setImageResource(mThumbIds[position]);
+        imageView.setImageResource(characterArray[position]);
 
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         imageView.setLayoutParams(new GridView.LayoutParams(100, 100));

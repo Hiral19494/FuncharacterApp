@@ -13,8 +13,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import butterknife.ButterKnife;
 import ca.hiral.viewpagerexample.Adapter.ColorAdapter;
-import ca.hiral.viewpagerexample.Adapter.ImageAdapter;
 import ca.hiral.viewpagerexample.LayoutActivity;
 import ca.hiral.viewpagerexample.R;
 
@@ -44,25 +44,14 @@ public class ColorFragment extends Fragment {
     Bitmap bitmap, newImage;
     int position;
     Intent intent;
-    GridView gridView;
-    ImageAdapter imageAdapter;
+    GridView grvColor;
+
     ImageView imageView;
 
     public ColorFragment() {
         // Required empty public constructor
     }
 
-    public Integer[] mThumbIds = {
-            R.drawable.pic_s9_white,
-            R.drawable.pic_s9_2, R.drawable.pic_s9_3,
-            R.drawable.pic_s9_4, R.drawable.pic_s9_5,
-            R.drawable.pic_s9_6, R.drawable.pic_s9_7,
-            R.drawable.pic_s9_8, R.drawable.pic_s9_9,
-            R.drawable.pic_s9_10, R.drawable.pic_s9_11,
-            R.drawable.pic_s9_13, R.drawable.pic_s9_14,
-            R.drawable.pic_s9_15
-
-    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,10 +63,10 @@ public class ColorFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_character, container, false);
-        gridView = (GridView) view.findViewById(R.id.grv_character_images);
+        ButterKnife.bind(this, view);
+        grvColor = (GridView) view.findViewById(R.id.grv_character_images);
 
         colorAdapter = new ColorAdapter(getActivity());
-        imageAdapter = new ImageAdapter(getActivity(), mThumbIds);
         imageView = (ImageView) getActivity().findViewById(R.id.imv_face);
 
 
@@ -86,10 +75,10 @@ public class ColorFragment extends Fragment {
         imageView.buildDrawingCache();
         bitmap = Bitmap.createBitmap(imageView.getDrawingCache());
 
-        gridView.setAdapter(colorAdapter);
+        grvColor.setAdapter(colorAdapter);
 
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        grvColor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 

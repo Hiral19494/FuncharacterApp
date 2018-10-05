@@ -16,7 +16,7 @@ public class ColorAdapter extends BaseAdapter {
     private Context mContext;
 
     // Keep all Images in array
-    public Integer[] mThumbIds = {
+    public Integer[] colorArray = {
             R.drawable.pic_s9_white,
             R.drawable.pic_s9_2, R.drawable.pic_s9_3,
             R.drawable.pic_s9_4, R.drawable.pic_s9_5,
@@ -35,12 +35,12 @@ public class ColorAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mThumbIds.length;
+        return colorArray.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return mThumbIds[position];
+        return colorArray[position];
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ColorAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView = new ImageView(mContext);
-        imageView.setImageResource(mThumbIds[position]);
+        imageView.setImageResource(colorArray[position]);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         imageView.setLayoutParams(new GridView.LayoutParams(100, 100));
 

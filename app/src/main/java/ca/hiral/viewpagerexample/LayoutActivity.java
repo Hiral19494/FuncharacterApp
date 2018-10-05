@@ -1,6 +1,5 @@
 package ca.hiral.viewpagerexample;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
@@ -10,9 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AbsListView;
@@ -31,7 +28,6 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ca.hiral.viewpagerexample.Fragment.ColorFragment;
 import ca.hiral.viewpagerexample.Fragment.CharacterFragment;
 
 /**
@@ -39,18 +35,18 @@ import ca.hiral.viewpagerexample.Fragment.CharacterFragment;
  */
 
 public class LayoutActivity extends AppCompatActivity {
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+   /* @BindView(R.id.toolbar)
+    Toolbar toolbar;*/
     @BindView(R.id.tabs)
     public TabLayout tabLayout;
     @BindView(R.id.viewpager)
     ViewPager viewPager;
     ArrayClass arrayClass;
     private int[] tabIcons = {
-            R.drawable.face,
+            R.drawable.pic_s1_1,
             R.drawable.eyebrow,
-            R.drawable.i,
-            R.drawable.lip,
+            R.drawable.pic_s4_1,
+            R.drawable.pic_s5_7,
             R.drawable.nose,
             R.drawable.glass,
             R.drawable.pic_s8_1,
@@ -63,10 +59,10 @@ public class LayoutActivity extends AppCompatActivity {
     public ImageView imvNose;
     private ImageView imvGlasses;
     private ImageView imvTop;
-    RelativeLayout rlCharacter;
+    FrameLayout flCharacter;
     ScrollView scroll;
-    @BindView(R.id.rl_full_image)
-    RelativeLayout rlFullImage;
+    @BindView(R.id.fl_full_image)
+    FrameLayout flFullImage;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -79,8 +75,8 @@ public class LayoutActivity extends AppCompatActivity {
         setContentView(R.layout.layoutactivity);
         ButterKnife.bind(this);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    //    setSupportActionBar(toolbar);
+      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -90,13 +86,13 @@ public class LayoutActivity extends AppCompatActivity {
         scroll.setLayoutParams(layoutParams1);
 
 
-        rlCharacter = new RelativeLayout(this);
-        //    rlCharacter.setBackgroundResource(R.drawable.layout_border);
+        flCharacter = new FrameLayout(this);
+        //    flCharacter.setBackgroundResource(R.drawable.layout_border);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(new AbsListView.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT
                 , FrameLayout.LayoutParams.MATCH_PARENT));
         layoutParams.setMargins(0, 0, 0, 2);
-        rlCharacter.setLayoutParams(layoutParams);
-        rlCharacter.setGravity(Gravity.CENTER);
+        flCharacter.setLayoutParams(layoutParams);
+       // flCharacter.setGravity(Gravity.CENTER);
 
 
         imvFace = new ImageView(this);
@@ -112,7 +108,7 @@ public class LayoutActivity extends AppCompatActivity {
 
         imvTop.setImageResource(R.drawable.pic_s8_1);
         FrameLayout.LayoutParams to = new FrameLayout.LayoutParams(500, 500);
-        to.setMargins(80, 220, 0, 0);
+        to.setMargins(80, 210, 0, 0);
         imvTop.setLayoutParams(to);
 
 
@@ -155,18 +151,18 @@ public class LayoutActivity extends AppCompatActivity {
         imvLip.setLayoutParams(lp4);
 
 
-        rlCharacter.addView(imvFace);
-        rlCharacter.addView(imvTop);
-        rlCharacter.addView(imvEyebrow);
-        rlCharacter.addView(imvGlasses);
-        rlCharacter.addView(imvEyes);
-        rlCharacter.addView(imvNose);
-        rlCharacter.addView(imvLip);
+        flCharacter.addView(imvFace);
+        flCharacter.addView(imvTop);
+        flCharacter.addView(imvEyebrow);
+        flCharacter.addView(imvGlasses);
+        flCharacter.addView(imvEyes);
+        flCharacter.addView(imvNose);
+        flCharacter.addView(imvLip);
 
-        scroll.addView(rlCharacter);
+        scroll.addView(flCharacter);
 
 
-        rlFullImage.addView(scroll);
+        flFullImage.addView(scroll);
 
 
         setupTabIcons();
@@ -179,9 +175,9 @@ public class LayoutActivity extends AppCompatActivity {
 
 
     public void saveImageToGallery() {
-        rlFullImage.setDrawingCacheEnabled(true);
-        rlFullImage.buildDrawingCache();
-        Bitmap bm = rlFullImage.getDrawingCache();
+        flFullImage.setDrawingCacheEnabled(true);
+        flFullImage.buildDrawingCache();
+        Bitmap bm = flFullImage.getDrawingCache();
 
         String root = String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
 
@@ -218,7 +214,7 @@ public class LayoutActivity extends AppCompatActivity {
         tabLayout.getTabAt(4).setIcon(tabIcons[4]);
         tabLayout.getTabAt(5).setIcon(tabIcons[5]);
         tabLayout.getTabAt(6).setIcon(tabIcons[6]);
-        tabLayout.getTabAt(7).setIcon(tabIcons[7]);
+        //tabLayout.getTabAt(7).setIcon(tabIcons[7]);
 
 
     }
@@ -233,7 +229,7 @@ public class LayoutActivity extends AppCompatActivity {
         adapter.addFragment(new CharacterFragment(arrayClass.nosearray), "Five");
         adapter.addFragment(new CharacterFragment(arrayClass.glassarray), "Six");
         adapter.addFragment(new CharacterFragment(arrayClass.toparray), "seven");
-        adapter.addFragment(new ColorFragment(), "Eight");
+        //adapter.addFragment(new ColorFragment(), "Eight");
         viewPager.setAdapter(adapter);
     }
 
@@ -283,9 +279,9 @@ public class LayoutActivity extends AppCompatActivity {
 
 
                 saveImageToGallery();
-                Log.d("pass image", String.valueOf(rlFullImage));
+                /*Log.d("pass image", String.valueOf(flFullImage));
                 Intent a = new Intent(LayoutActivity.this, AnimationActivity.class);
-                startActivity(a);
+                startActivity(a);*/
 
 
                 return true;

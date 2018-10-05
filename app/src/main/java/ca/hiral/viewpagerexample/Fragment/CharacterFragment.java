@@ -63,7 +63,7 @@ public class CharacterFragment extends Fragment {
 
                 position = (int) adapterView.getItemAtPosition(i);
                 intent = new Intent();
-                Drawable myDrawable = getResources().getDrawable(imageAdapter.mThumbIds[i]);
+                Drawable myDrawable = getResources().getDrawable(imageAdapter.characterArray[i]);
                 Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
                 // passing array index
 
@@ -72,9 +72,6 @@ public class CharacterFragment extends Fragment {
                 byte[] bytes = stream.toByteArray();
 
                 intent.putExtra("id", bytes);
-                Log.d("hiral", String.valueOf(position));
-
-
                 updateUI(intent);
 
             }
