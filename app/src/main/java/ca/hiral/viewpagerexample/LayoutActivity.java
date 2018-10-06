@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 
@@ -35,8 +36,8 @@ import ca.hiral.viewpagerexample.Fragment.CharacterFragment;
  */
 
 public class LayoutActivity extends AppCompatActivity {
-   /* @BindView(R.id.toolbar)
-    Toolbar toolbar;*/
+    /* @BindView(R.id.toolbar)
+     Toolbar toolbar;*/
     @BindView(R.id.tabs)
     public TabLayout tabLayout;
     @BindView(R.id.viewpager)
@@ -75,8 +76,8 @@ public class LayoutActivity extends AppCompatActivity {
         setContentView(R.layout.layoutactivity);
         ButterKnife.bind(this);
 
-    //    setSupportActionBar(toolbar);
-      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //    setSupportActionBar(toolbar);
+        //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -92,7 +93,7 @@ public class LayoutActivity extends AppCompatActivity {
                 , FrameLayout.LayoutParams.MATCH_PARENT));
         layoutParams.setMargins(0, 0, 0, 2);
         flCharacter.setLayoutParams(layoutParams);
-       // flCharacter.setGravity(Gravity.CENTER);
+        // flCharacter.setGravity(Gravity.CENTER);
 
 
         imvFace = new ImageView(this);
@@ -197,13 +198,15 @@ public class LayoutActivity extends AppCompatActivity {
             FileOutputStream out = new FileOutputStream(file);
             //
             bm.compress(Bitmap.CompressFormat.PNG, 70, out);
-            // out.flush();
+            //Toast.makeText(getBaseContext(), "Image save", Toast.LENGTH_LONG).show();
+             out.flush();
             out.close();
 
         } catch (Exception e) {
             e.printStackTrace();
+            Log.d("error",e.getMessage());
         }
-
+        Toast.makeText(getBaseContext(), "Image save", Toast.LENGTH_LONG).show();
     }
 
     private void setupTabIcons() {
@@ -275,10 +278,10 @@ public class LayoutActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.eye:
-
+            case R.id.save:
 
                 saveImageToGallery();
+              //  addImageToGallery(String.valueOf(file),getBaseContext() );
                 /*Log.d("pass image", String.valueOf(flFullImage));
                 Intent a = new Intent(LayoutActivity.this, AnimationActivity.class);
                 startActivity(a);*/
@@ -290,5 +293,6 @@ public class LayoutActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 
 }
