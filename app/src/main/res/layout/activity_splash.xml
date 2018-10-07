@@ -22,12 +22,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="KidFun"
+            android:text="Let's the Fun Begins"
             android:textStyle="italic"
             android:textColor="@color/white"
             android:layout_below="@+id/splash_icon"
             android:layout_centerHorizontal="true"
-            android:textSize="50dp"
+            android:textSize="30dp"
             android:typeface="serif"/>
     </RelativeLayout>
 </RelativeLayout>

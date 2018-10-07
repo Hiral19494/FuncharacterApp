@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AbsListView;
@@ -92,8 +93,9 @@ public class LayoutActivity extends AppCompatActivity {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(new AbsListView.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT
                 , FrameLayout.LayoutParams.MATCH_PARENT));
         layoutParams.setMargins(0, 0, 0, 2);
+        layoutParams.gravity= Gravity.CENTER_HORIZONTAL;
         flCharacter.setLayoutParams(layoutParams);
-        // flCharacter.setGravity(Gravity.CENTER);
+        //flCharacter.setGravity(Gravity.CENTER);
 
 
         imvFace = new ImageView(this);
@@ -206,7 +208,7 @@ public class LayoutActivity extends AppCompatActivity {
             e.printStackTrace();
             Log.d("error",e.getMessage());
         }
-        Toast.makeText(getBaseContext(), "Image save", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Image save in Gallery", Toast.LENGTH_LONG).show();
     }
 
     private void setupTabIcons() {
