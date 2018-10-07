@@ -20,8 +20,6 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -69,7 +67,7 @@ public class LayoutActivity extends AppCompatActivity {
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
-    private GoogleApiClient client;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,13 +176,13 @@ public class LayoutActivity extends AppCompatActivity {
 
 
     public void saveImageToGallery() {
-        flFullImage.setDrawingCacheEnabled(true);
-        flFullImage.buildDrawingCache();
-        Bitmap bm = flFullImage.getDrawingCache();
+        flCharacter.setDrawingCacheEnabled(true);
+        flCharacter.buildDrawingCache();
+        Bitmap bm = flCharacter.getDrawingCache();
 
         String root = String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
 
-        File myDir = new File(root + "/Funcharacter1");
+        File myDir = new File(root + "/FunFaces");
         myDir.mkdirs();
         Random generator = new Random();
         int n = 10000;
@@ -193,6 +191,7 @@ public class LayoutActivity extends AppCompatActivity {
         File file = new File(myDir, fname);
 
         Log.d("joo", "" + file);
+        Log.d("fname",fname);
 
         if (file.exists())
             file.delete();
