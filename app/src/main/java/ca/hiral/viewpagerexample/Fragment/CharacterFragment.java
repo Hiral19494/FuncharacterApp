@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +17,7 @@ import android.widget.ImageView;
 import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
 
+import androidx.fragment.app.Fragment;
 import ca.hiral.viewpagerexample.Adapter.ImageAdapter;
 import ca.hiral.viewpagerexample.ArrayClass;
 import ca.hiral.viewpagerexample.R;

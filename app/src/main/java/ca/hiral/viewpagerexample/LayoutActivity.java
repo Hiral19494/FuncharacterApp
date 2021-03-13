@@ -3,12 +3,6 @@ package ca.hiral.viewpagerexample;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -16,9 +10,11 @@ import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,6 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ca.hiral.viewpagerexample.Fragment.CharacterFragment;
@@ -75,48 +76,51 @@ public class LayoutActivity extends AppCompatActivity {
         setContentView(R.layout.layoutactivity);
         ButterKnife.bind(this);
 
-        //    setSupportActionBar(toolbar);
-        //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
 
         scroll = new ScrollView(this);
         FrameLayout.LayoutParams layoutParams1 = new FrameLayout.LayoutParams(new AbsListView.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT
                 , FrameLayout.LayoutParams.MATCH_PARENT));
+        layoutParams1.gravity= Gravity.CENTER;
         scroll.setLayoutParams(layoutParams1);
 
 
         flCharacter = new FrameLayout(this);
         //    flCharacter.setBackgroundResource(R.drawable.layout_border);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(new AbsListView.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT
-                , FrameLayout.LayoutParams.MATCH_PARENT));
-        layoutParams.setMargins(0, 0, 0, 2);
-        layoutParams.gravity= Gravity.CENTER_HORIZONTAL;
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(new AbsListView.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT
+                , FrameLayout.LayoutParams.WRAP_CONTENT));
+
+
+        layoutParams.gravity = Gravity.CENTER;
         flCharacter.setLayoutParams(layoutParams);
-        //flCharacter.setGravity(Gravity.CENTER);
+
 
 
         imvFace = new ImageView(this);
         imvFace.setId(R.id.imv_face);
         imvFace.setImageResource(R.drawable.pic_s1_0);
-        RelativeLayout.LayoutParams layoutparams = new RelativeLayout.LayoutParams(680, 680);
+        LinearLayout.LayoutParams layoutparams = new LinearLayout.LayoutParams(680, 680);
+        layoutParams.gravity= Gravity.CENTER;
         layoutparams.setMargins(0, 0, 0, 450);
         imvFace.setLayoutParams(layoutparams);
+
 
 
         imvTop = new ImageView(this);
         imvTop.setId(R.id.imv_top);
 
         imvTop.setImageResource(R.drawable.pic_s8_1);
-        FrameLayout.LayoutParams to = new FrameLayout.LayoutParams(500, 500);
-        to.setMargins(80, 210, 0, 0);
+        LinearLayout.LayoutParams to = new  LinearLayout.LayoutParams(500, 500);
+        to.setMargins(80, 220, 0, 0);
         imvTop.setLayoutParams(to);
 
 
         imvEyebrow = new ImageView(this);
         imvEyebrow.setId(R.id.imv_eyebrow);
         imvEyebrow.setImageResource(R.drawable.pic_s3_1);
-        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(300, 300);
+        LinearLayout.LayoutParams lp = new  LinearLayout.LayoutParams(300, 300);
         lp.setMargins(190, 145, 0, 0);
         imvEyebrow.setLayoutParams(lp);
 
@@ -124,7 +128,7 @@ public class LayoutActivity extends AppCompatActivity {
         imvGlasses = new ImageView(this);
         imvGlasses.setId(R.id.imv_glasses);
         imvGlasses.setImageResource(0);
-        FrameLayout.LayoutParams glass = new FrameLayout.LayoutParams(390, 390);
+        LinearLayout.LayoutParams glass = new  LinearLayout.LayoutParams(390, 390);
         glass.setMargins(150, 130, 20, 0);
         imvGlasses.setLayoutParams(glass);
 
@@ -132,7 +136,7 @@ public class LayoutActivity extends AppCompatActivity {
         imvEyes = new ImageView(this);
         imvEyes.setId(R.id.imv_eyes);
         imvEyes.setImageResource(R.drawable.pic_s4_34);
-        FrameLayout.LayoutParams lp2 = new FrameLayout.LayoutParams(300, 300);
+        LinearLayout.LayoutParams lp2 = new  LinearLayout.LayoutParams(300, 300);
         lp2.setMargins(190, 172, 0, 0);
         imvEyes.setLayoutParams(lp2);
 
@@ -140,14 +144,14 @@ public class LayoutActivity extends AppCompatActivity {
         imvNose = new ImageView(this);
         imvNose.setId(R.id.imv_nose);
         imvNose.setImageResource(R.drawable.pic_s14_20024);
-        FrameLayout.LayoutParams lp3 = new FrameLayout.LayoutParams(180, 180);
+        LinearLayout.LayoutParams lp3 = new  LinearLayout.LayoutParams(180, 180);
         lp3.setMargins(255, 310, 0, 0);
         imvNose.setLayoutParams(lp3);
 
         imvLip = new ImageView(this);
         imvLip.setId(R.id.imv_lip);
         imvLip.setImageResource(R.drawable.pic_s5_20001);
-        FrameLayout.LayoutParams lp4 = new FrameLayout.LayoutParams(310, 310);
+        LinearLayout.LayoutParams lp4 = new  LinearLayout.LayoutParams(310, 310);
         lp4.setMargins(190, 330, 0, 0);
         imvLip.setLayoutParams(lp4);
 
@@ -243,7 +247,7 @@ public class LayoutActivity extends AppCompatActivity {
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
+           super(manager);
         }
 
         @Override
